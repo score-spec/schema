@@ -15,7 +15,7 @@ git subtree add \
   --squash
 ```
 
-> **Note:** To avoid storing the entire history of the subproject in the main repository make sure to include `--squash` flag.
+> **Note:** To avoid storing the entire history of the sub-project in the main repository, make sure to include `--squash` flag.
 
 ## Update schemas from upstream
 
