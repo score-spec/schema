@@ -74,6 +74,10 @@
           "description": "The public service port.",
           "type": "integer"
         },
+        "protocol": {
+          "description": "The transport level protocol. Defaults to TCP.",
+          "type": "string"
+        },
         "targetPort": {
           "description": "The internal service port.",
           "type": "integer"
