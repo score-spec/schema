@@ -117,13 +117,6 @@
             }
           }
         },
-        "properties": {
-          "description": "DEPRECATED: The properties that can be referenced in other places in the Score Specification file.",
-          "type": [
-            "object",
-            "null"
-          ]
-        },
         "params": {
           "description": "The parameters used to validate or provision the resource in the environment.",
           "type": "object"
