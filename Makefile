@@ -2,6 +2,8 @@
 MAKEFLAGS += --no-builtin-rules
 .SUFFIXES:
 
+SCORE_EXAMPLES_DIR ?= ./samples/
+
 ## Display help menu
 .PHONY: help
 help:
@@ -36,7 +38,7 @@ test-examples: ${GOPATH}/bin/jv
 ifeq ($(SCORE_EXAMPLES_DIR),)
 	$(error SCORE_EXAMPLES_DIR must be set)
 endif
-	find ${SCORE_EXAMPLES_DIR} -name score.yaml -print -exec ${GOPATH}/bin/jv -assertformat -assertcontent ./score-v1b1.json {} \;
+	find ${SCORE_EXAMPLES_DIR} -name 'score*.yaml' -print -exec ${GOPATH}/bin/jv -assertformat -assertcontent ./score-v1b1.json {} \;
 
 ## Run all tests
 .PHONY: test
