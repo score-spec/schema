@@ -25,11 +25,11 @@
       "additionalProperties": true,
       "properties": {
         "name": {
-          "description": "A string that can describe the Workload. This may be 63 characters, including A-Z, a-z, 0-9, '-' but may not start with '-'.",
+          "description": "A string that can describe the Workload. This may be up to 63 characters, including a-z, 0-9, '-' but may not start or end with '-'.",
           "type": "string",
           "minLength": 2,
           "maxLength": 63,
-          "pattern": "^[A-Za-z0-9][A-Za-z0-9-]{0,61}[A-Za-z0-9]$"
+          "pattern": "^[a-z][a-z0-9-]{0,61}[a-z0-9]$"
         }
       }
     },
@@ -39,10 +39,12 @@
       "additionalProperties": false,
       "properties": {
         "ports": {
-          "description": "The set of named network ports published by the service. The name may be 63 characters, including A-Z, a-z, 0-9, '-' but may not start with '-'.",
+          "description": "The set of named network ports published by the service. The name may be up to 63 characters, including a-z, 0-9, '-' but may not start or end with '-'.",
           "type": "object",
           "propertyNames": {
-            "pattern": "^[A-Za-z0-9][A-Za-z0-9-]{0,61}[A-Za-z0-9]$"
+            "minLength": 2,
+            "maxLength": 63,
+            "pattern": "^[a-z][a-z0-9-]{0,61}[a-z0-9]$"
           },
           "additionalProperties": {
             "$ref": "#/$defs/servicePort"
@@ -51,18 +53,28 @@
       }
     },
     "containers": {
-      "description": "The declared Score Specification version.",
+      "description": "The declared Score Specification version. The container name may be up to 63 characters, including a-z, 0-9, '-' but may not start or end with '-'.",
       "type": "object",
       "minProperties": 1,
       "additionalProperties": {
         "$ref": "#/$defs/container"
+      },
+      "propertyNames": {
+        "minLength": 2,
+        "maxLength": 63,
+        "pattern": "^[a-z][a-z0-9-]{0,61}[a-z0-9]$"
       }
     },
     "resources": {
-      "description": "The Resource dependencies needed by the Workload.",
+      "description": "The Resource dependencies needed by the Workload. The resource name may be up to 63 characters, including a-z, 0-9, '-' but may not start or end with '-'.",
       "type": "object",
       "additionalProperties": {
         "$ref": "#/$defs/resource"
+      },
+      "propertyNames": {
+        "minLength": 2,
+        "maxLength": 63,
+        "pattern": "^[a-z][a-z0-9-]{0,61}[a-z0-9]$"
       }
     }
   },
@@ -98,24 +110,25 @@
       }
     },
     "resource": {
-      "description": "The set of Resources associated with this Workload. The name may be 63 characters, including A-Z, a-z, 0-9, '-' but may not start with '-'.",
+      "description": "The set of Resources associated with this Workload.",
       "type": "object",
       "additionalProperties": false,
       "required": [
         "type"
       ],
-      "propertyNames": {
-        "pattern": "^[A-Za-z0-9][A-Za-z0-9-]{0,61}[A-Za-z0-9]$"
-      },
       "properties": {
         "type": {
           "description": "The Resource type. This should be a type supported by the Score implementations being used.",
           "type": "string",
+          "minLength": 2,
+          "maxLength": 63,
           "pattern": "^[A-Za-z0-9][A-Za-z0-9-]{0,61}[A-Za-z0-9]$"
         },
         "class": {
           "description": "A specialisation of the Resource type.",
           "type": "string",
+          "minLength": 2,
+          "maxLength": 63,
           "pattern": "^[A-Za-z0-9][A-Za-z0-9-]{0,61}[A-Za-z0-9]$"
         },
         "metadata": {
@@ -124,10 +137,15 @@
           "additionalProperties": true,
           "properties": {
             "annotations": {
-              "description": "Annotations that apply to the Resource.",
+              "description": "Annotations that apply to the Resource. The annotation can contain A-Z, a-z, 0-9, and '-' and may contain an optional /-separated dns-name prefix.",
               "type": "object",
               "additionalProperties": {
                 "type": "string"
+              },
+              "propertyNames": {
+                "minLength": 2,
+                "maxLength": 316,
+                "pattern": "^(([a-z][a-z0-9-]{0,61}[a-z0-9])(\\.[a-z][a-z0-9-]{0,61}[a-z0-9])*/)?[A-Za-z0-9][A-Za-z0-9-]{0,61}[A-Za-z0-9]$"
               }
             }
           }
