@@ -36,11 +36,12 @@ containers:
     - source: volume-name
       target: /mnt/something
       path: /sub/path
-      read_only: false
+      readOnly: false
     - source: volume-two
       target: /mnt/something-else
     livenessProbe:
       httpGet:
+        port: 8080
         path: /livez
     readinessProbe:
       httpGet:

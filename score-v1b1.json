@@ -282,7 +282,7 @@
                 "description": "The target mount on the container.",
                 "type": "string"
               },
-              "read_only": {
+              "readOnly": {
                 "description": "Indicates if the volume should be mounted in a read-only mode.",
                 "type": "boolean"
               }
@@ -331,11 +331,12 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
+        "port",
         "path"
       ],
       "properties": {
         "host": {
-          "description": "Host name to connect to. Defaults to the container IP.",
+          "description": "Host name to connect to. Defaults to the workload IP. The is equivalent to a Host HTTP header.",
           "type": "string"
         },
         "scheme": {
@@ -347,11 +348,11 @@
           ]
         },
         "path": {
-          "description": "The path of the HTTP probe endpoint.",
+          "description": "The path to access on the HTTP server.",
           "type": "string"
         },
         "port": {
-          "description": "The path of the HTTP probe endpoint.",
+          "description": "The port to access on the workload.",
           "type": "integer",
           "minimum": 1,
           "maximum": 65535
@@ -365,7 +366,8 @@
             "properties": {
               "name": {
                 "description": "The HTTP header name.",
-                "type": "string"
+                "type": "string",
+                "pattern": "^[A-Za-z0-9_-]+$"
               },
               "value": {
                 "description": "The HTTP header value.",
