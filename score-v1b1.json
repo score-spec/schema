@@ -205,7 +205,8 @@
           "description": "The environment variables for the container.",
           "type": "object",
           "propertyNames": {
-            "minLength": 1
+            "minLength": 1,
+            "pattern": "^[^=]+$"
           },
           "additionalProperties": {
             "type": "string"
@@ -219,6 +220,7 @@
             "required": [
               "target"
             ],
+            "additionalProperties": false,
             "properties": {
               "target": {
                 "description": "The file path to expose in the container.",
@@ -265,6 +267,7 @@
           "type": "array",
           "items": {
             "type": "object",
+            "additionalProperties": false,
             "required": [
               "source",
               "target"
