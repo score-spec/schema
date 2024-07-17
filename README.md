@@ -1,4 +1,6 @@
 # JSON schemas for Score files
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fscore-spec%2Fschema.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fscore-spec%2Fschema?ref=badge_shield)
+
 
 | version | file |
 | --- | --- |
@@ -32,3 +34,7 @@ git subtree pull \
 
 All changes to `score-spec/schema` should be done via pull requests and comply with the review and sign-off policies.
 
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fscore-spec%2Fschema.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fscore-spec%2Fschema?ref=badge_large)
