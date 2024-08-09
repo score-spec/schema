@@ -1,34 +1,3 @@
-# JSON schemas for Score files
+⚠️ The contents of this repo have been moved into the core [spec](https://github.com/score-spec/spec) repository and this repository is maintained for the sake of its history only.
 
-| version | file |
-| --- | --- |
-| v1-beta1 | score-v1b1.json |
-
-## Embed schemas into project
-
-Add Score schemas into projects with `git subtree add` command:
-
-```
-git subtree add \
-  --prefix schemas \
-  git@github.com:score-spec/schema.git main \
-  --squash
-```
-
-> **Note:** To avoid storing the entire history of the sub-project in the main repository, make sure to include `--squash` flag.
-
-## Update schemas from upstream
-
-Get the latest versions of the schemas `git subtree pull` command:
-
-```
-git subtree pull \
-  --prefix schemas \
-  git@github.com:score-spec/schema.git main \
-  --squash
-```
-
-## Contribute changes to upstream
-
-All changes to `score-spec/schema` should be done via pull requests and comply with the review and sign-off policies.
-
+Please update any links or CI tools to point to the new location of the Score JSON schema.
